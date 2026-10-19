@@ -1,0 +1,317 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>500 AI Prompts</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single narrow column built for phones; hero, contents map, sample prompts, FAQ, sticky buy bar. Navy and gold to match the pack's cover. */
+:root {
+  --navy-950: #0a1430;
+  --navy-900: #0f1c40;
+  --navy-800: #172853;
+  --gold: #e6b34d;
+  --gold-soft: #f4d98f;
+  --ink: #eef1f8;
+  --muted: #aab4cf;
+  --line: rgba(230, 179, 77, 0.22);
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy-950);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 96px;
+  margin: 0;
+}
+.wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; padding-top: 32px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 3px; }
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 20px; }
+.hero h1 { font-size: clamp(44px, 14vw, 76px); font-weight: 800; }
+.hero h1 .gold { color: var(--gold); display: block; }
+.hero .lede { font-size: 19px; color: var(--muted); max-width: 34ch; }
+.price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.price { font-family: var(--font-display); font-weight: 800; font-size: 44px; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.price-note { color: var(--muted); font-size: 15px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--gold); color: var(--navy-950);
+  font-family: var(--font-body); font-weight: 600; font-size: 18px;
+  padding: 16px 26px; border-radius: 10px; text-decoration: none; border: 0; cursor: pointer;
+  min-height: 56px; text-align: center;
+}
+.btn:hover { background: var(--gold-soft); }
+.btn-block { width: 100%; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 15px; padding: 0; margin: 0; list-style: none; }
+.facts li::before { content: ""; display: inline-block; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+/* Cover motif */
+.cover {
+  background: var(--navy-900);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative;
+}
+.cover .big { font-family: var(--font-display); font-weight: 800; font-size: 96px; line-height: 0.9; color: var(--gold); letter-spacing: -0.03em; }
+.cover .small { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.cover .strip { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; font-size: 14px; color: var(--ink); }
+.cover .strip span { border-top: 1px solid var(--line); padding-top: 6px; }
+
+/* Section headings */
+.sec { display: flex; flex-direction: column; gap: 20px; }
+.sec h2 { font-size: clamp(30px, 8vw, 42px); font-weight: 800; }
+.sec .sub { color: var(--muted); }
+
+/* Contents map */
+.map { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.map-row { display: grid; grid-template-columns: 92px 1fr; gap: 4px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.map-row .range { font-family: var(--font-mono); color: var(--gold); font-size: 15px; padding-top: 3px; font-variant-numeric: tabular-nums; }
+.map-row h3 { font-size: 22px; font-weight: 600; }
+.map-row p { grid-column: 2; color: var(--muted); font-size: 15px; }
+
+/* Sample prompts */
+.samples { display: flex; flex-direction: column; gap: 14px; }
+.sample { background: var(--navy-900); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.sample .tag { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.sample .text { font-size: 16px; overflow-wrap: anywhere; }
+.copy { align-self: flex-start; background: transparent; color: var(--gold-soft); border: 1px solid var(--gold); border-radius: 8px; padding: 10px 16px; font-family: var(--font-body); font-weight: 600; font-size: 15px; cursor: pointer; min-height: 44px; }
+.copy:hover { background: var(--navy-800); }
+
+/* Audience */
+.who { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0; margin: 0; list-style: none; }
+.who li { background: var(--navy-900); border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 0 10px 10px 0; }
+.who strong { display: block; font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-bottom: 2px; }
+.who span { color: var(--muted); font-size: 15px; }
+
+/* Example transformation */
+.swap { display: flex; flex-direction: column; gap: 10px; }
+.swap .box { background: var(--navy-900); border: 1px solid var(--line); border-radius: 12px; padding: 16px; font-size: 16px; overflow-wrap: anywhere; }
+.swap .box b { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; font-weight: 500; }
+.swap .hl { color: var(--gold-soft); font-weight: 600; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.faq summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; font-size: 20px; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; min-height: 32px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--gold); font-size: 26px; line-height: 1; flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin-top: 10px; color: var(--muted); font-size: 16px; }
+
+/* Closing */
+.closing { background: var(--navy-900); border: 1px solid var(--line); border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; gap: 16px; }
+.closing h2 { font-size: clamp(30px, 8vw, 40px); font-weight: 800; }
+.closing p { color: var(--muted); }
+.foot { color: var(--muted); font-size: 14px; text-align: center; }
+
+/* Sticky buy bar */
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  background: var(--navy-900); border-top: 1px solid var(--line);
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.bar-in { max-width: 640px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.bar .p { font-family: var(--font-display); font-weight: 800; font-size: 24px; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.bar .btn { padding: 12px 22px; min-height: 48px; font-size: 17px; }
+
+@media (min-width: 560px) {
+  .who { grid-template-columns: 1fr 1fr; }
+  .cover .big { font-size: 120px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">For teachers, creators and small business owners</p>
+    <h1>500 AI Prompts <span class="gold">Copy. Paste. Done.</span></h1>
+    <p class="lede">Ready-to-use prompts for ChatGPT, Gemini, Claude or any AI chat tool. Fill in the [brackets], press enter, and get your lesson plan, video script, caption or customer reply.</p>
+    <div class="price-row">
+      <span class="price">₦4,999</span>
+      <span class="price-note">one payment, yours to keep</span>
+    </div>
+    <a class="btn btn-block" href="https://selar.com/7u4z248l14" target="_blank" rel="noopener">Get the 500 prompts on Selar</a>
+    <ul class="facts">
+      <li>36-page guide</li>
+      <li>5 sections</li>
+      <li>No AI experience needed</li>
+    </ul>
+  </header>
+
+  <div class="cover" aria-hidden="true">
+    <span class="small">The ultimate</span>
+    <span class="big">500</span>
+    <span class="small">AI prompts for teachers &amp; content creators</span>
+    <div class="strip">
+      <span>Teachers</span><span>YouTube</span><span>Facebook</span><span>AI Images</span><span>Business</span>
+    </div>
+  </div>
+
+  <section class="sec" aria-labelledby="inside">
+    <h2 id="inside">What is inside</h2>
+    <p class="sub">100 prompts in each of five sections. Find your job, copy the prompt, go.</p>
+    <div class="map">
+      <div class="map-row">
+        <span class="range">#1 to 100</span>
+        <h3>Prompts for Teachers</h3>
+        <p>Lesson plans, worksheets, report card comments, messages to parents, class activities, stories and quizzes.</p>
+      </div>
+      <div class="map-row">
+        <span class="range">#101 to 200</span>
+        <h3>Prompts for YouTube</h3>
+        <p>Titles, hooks, full scripts, thumbnail ideas, SEO descriptions and hashtags.</p>
+      </div>
+      <div class="map-row">
+        <span class="range">#201 to 300</span>
+        <h3>Prompts for Facebook</h3>
+        <p>Reel and story ideas, engagement posts, captions and 30-day content calendars.</p>
+      </div>
+      <div class="map-row">
+        <span class="range">#301 to 400</span>
+        <h3>AI Image Prompts</h3>
+        <p>Children's illustrations, YouTube thumbnails, story scenes and labeled classroom diagrams.</p>
+      </div>
+      <div class="map-row">
+        <span class="range">#401 to 500</span>
+        <h3>Business &amp; Productivity</h3>
+        <p>Emails, business plans, marketing copy, budgets and customer service replies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="how">
+    <h2 id="how">How a prompt works</h2>
+    <div class="swap">
+      <div class="box"><b>In the guide</b>Create a printable worksheet with 10 practice questions on <span class="hl">[topic]</span> for <span class="hl">[grade level]</span> students, including an answer key.</div>
+      <div class="box"><b>After you fill it in</b>Create a printable worksheet with 10 practice questions on <span class="hl">fractions</span> for <span class="hl">Grade 4</span> students, including an answer key.</div>
+    </div>
+    <p class="sub">Paste it into your AI tool. Ask for a shorter or friendlier version if you want a change.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="try">
+    <h2 id="try">Try three prompts now</h2>
+    <p class="sub">These come straight from the guide. Copy one and test it before you buy.</p>
+    <div class="samples">
+      <div class="sample">
+        <span class="tag">Teachers, report card comments</span>
+        <p class="text" id="s1">Write a report card comment for a student who has shown great improvement in [subject] this term.</p>
+        <button class="copy" type="button" data-target="s1">Copy prompt</button>
+      </div>
+      <div class="sample">
+        <span class="tag">YouTube, hooks</span>
+        <p class="text" id="s2">Write a hook that opens with a common myth or misconception about [topic] before debunking it.</p>
+        <button class="copy" type="button" data-target="s2">Copy prompt</button>
+      </div>
+      <div class="sample">
+        <span class="tag">Business, customer service</span>
+        <p class="text" id="s3">Write a reply to a customer asking about bulk or wholesale pricing for [product/service].</p>
+        <button class="copy" type="button" data-target="s3">Copy prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="for">
+    <h2 id="for">Made for you if you are</h2>
+    <ul class="who">
+      <li><strong>A teacher</strong><span>Plan lessons and write comments and parent notes in minutes.</span></li>
+      <li><strong>A YouTuber</strong><span>Get titles, hooks and scripts when you are stuck on a blank page.</span></li>
+      <li><strong>A Facebook creator</strong><span>Never run out of reel ideas, captions and posts.</span></li>
+      <li><strong>A small business owner</strong><span>Write emails, ads and replies without hiring a writer.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" aria-labelledby="faq">
+    <h2 id="faq">Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I need to know AI already?</summary>
+        <p>No. The guide opens with a quick start. You copy a prompt, replace the bracketed parts with your own details and paste it into your AI tool.</p>
+      </details>
+      <details>
+        <summary>Which AI tools can I use?</summary>
+        <p>Any AI chat tool, including ChatGPT, Gemini and Claude. The image prompts in Section 4 are for image tools such as Midjourney, DALL·E or Canva's Magic Media.</p>
+      </details>
+      <details>
+        <summary>Can I use what the prompts make for my work?</summary>
+        <p>Yes. You can use the content you generate in your classroom, videos, posts, worksheets, products and client work. You may not resell or share the prompt guide itself.</p>
+      </details>
+      <details>
+        <summary>How do I pay?</summary>
+        <p>Payment and delivery are handled by Selar, the Nigerian digital marketplace. Tap the button and follow the checkout.</p>
+      </details>
+      <details>
+        <summary>Should I check the AI's answers?</summary>
+        <p>Yes. Always review what the AI writes for accuracy before using it with students, customers or the public.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="last">
+    <h2 id="last">Stop starting from a blank page</h2>
+    <p>500 prompts for ₦4,999. Open it whenever you are stuck, copy a prompt and keep moving.</p>
+    <a class="btn btn-block" href="https://selar.com/7u4z248l14" target="_blank" rel="noopener">Get the 500 prompts on Selar</a>
+  </section>
+
+  <p class="foot">500 AI Prompts for Teachers &amp; Content Creators</p>
+</div>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="p">₦4,999</span>
+    <a class="btn" href="https://selar.com/7u4z248l14" target="_blank" rel="noopener">Buy on Selar</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.copy');
+  function select(el) {
+    var r = document.createRange();
+    r.selectNodeContents(el);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-target'));
+      var text = el.textContent;
+      var done = function () {
+        b.textContent = 'Copied';
+        setTimeout(function () { b.textContent = 'Copy prompt'; }, 1800);
+      };
+      var fallback = function () {
+        select(el);
+        b.textContent = 'Selected, press copy';
+        setTimeout(function () { b.textContent = 'Copy prompt'; }, 2500);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>
